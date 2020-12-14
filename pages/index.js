@@ -70,7 +70,7 @@ Home.getInitialProps = async (ctx) => {
   const host = ctx.req.headers.host;
   const sub = host.split(".")[0];
 
-  const res = await fetch('https://api.withlaguna.com/stonks/userinfo/${sub}')
+  const res = await fetch(`https://api.withlaguna.com/stonks/userinfo/${sub}`)
   const userInfo = await res.json()
 
   return { 
