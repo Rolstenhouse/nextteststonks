@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
-export default function Home({props}) {
+export default function Home({ props }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +16,7 @@ export default function Home({props}) {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -57,25 +57,24 @@ export default function Home({props}) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
 
-Home.getInitialProps = async (ctx) => {
-
+export async function getServerSideProps(ctx) {
   const host = ctx.req.headers.host;
   const sub = host.split(".")[0];
 
-  const res = await fetch(`https://api.withlaguna.com/stonks/userinfo/${sub}`)
-  const userInfo = await res.json()
+  const res = await fetch(`https://api.withlaguna.com/stonks/userinfo/${sub}`);
+  const userInfo = await res.json();
 
-  return { 
-    props: { 
-      userInfo
-    }
-  }
+  return {
+    props: {
+      userInfo,
+    },
+  };
 }
