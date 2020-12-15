@@ -18,6 +18,7 @@ import {
 
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { getServerSideProps } from ".";
 
 const theme = createMuiTheme({
   typography: {
