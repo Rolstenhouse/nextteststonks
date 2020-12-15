@@ -36,11 +36,14 @@ export async function getServerSideProps(ctx) {
   const host = ctx.req.headers.host;
   let sub = host.split(".")[0];
   if (process.env.NODE_ENV === "development") {
-    sub = "parth";
+    sub = "rob";
   }
 
   const res = await fetch(`https://api.withlaguna.com/stonks/userinfo/${sub}`);
-  const userInfo = await res.json();
+  let userInfo;
+  try {
+    userInfo = await res.json()
+  } catch {}
 
   if (!userInfo) {
     return {
