@@ -1,6 +1,6 @@
 import { execOnce } from "next/dist/next-server/lib/utils";
 import Head from "next/head";
-import MainPage from "./_MainPage";
+import MainPage from "../components/MainPage";
 
 function Home({ userInfo, sub }) {
   return (
